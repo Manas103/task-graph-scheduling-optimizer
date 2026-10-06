@@ -1,0 +1,19 @@
+# Maven build output. Regenerate with: mvn clean package
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

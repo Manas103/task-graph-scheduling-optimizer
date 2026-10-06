@@ -1,0 +1,15 @@
+[INFO] Running com.manas.taskgraph.api.GraphControllerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.30 s -- in com.manas.taskgraph.api.GraphControllerTest
+[INFO] Running com.manas.taskgraph.cost.CostPercentileServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.959 s -- in com.manas.taskgraph.cost.CostPercentileServiceTest
+[INFO] Running com.manas.taskgraph.graph.GraphValidatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.manas.taskgraph.graph.GraphValidatorTest
+[INFO] Running com.manas.taskgraph.optimize.FusionOptimizerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in com.manas.taskgraph.optimize.FusionOptimizerTest
+[INFO] Running com.manas.taskgraph.sim.OutputOrderCheckerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.manas.taskgraph.sim.OutputOrderCheckerTest
+[INFO] Running com.manas.taskgraph.sim.WorkerPoolSimulatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.manas.taskgraph.sim.WorkerPoolSimulatorTest
+[INFO] Results:
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: task-graph-scheduling-optimizer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task_graph_optimizer
+    username: taskgraph_app
+    password: taskgraph_app_local_only
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8080

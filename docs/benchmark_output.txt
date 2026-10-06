@@ -1,0 +1,27 @@
+=== Task-Graph Scheduling Optimizer -- 240-node benchmark run ===
+Date: 2026-10-05
+Graph: 240 nodes (30 blocks x 8)
+Simulated workers: 16
+Per-unit scheduling overhead: 2.0 ms (modeling assumption, not a measured system property)
+
+-- Per-task-type cost percentiles, from PostgreSQL percentile_cont over 2000 recorded executions each --
+  transform_c    n=2000  p50=  14.00ms  p90=  17.00ms  p99=  20.00ms
+  entry          n=2000  p50=   4.00ms  p90=   5.00ms  p99=   5.00ms
+  fanout_x       n=2000  p50=  20.00ms  p90=  24.00ms  p99=  27.00ms
+  fanout_y       n=2000  p50=  18.00ms  p90=  22.00ms  p99=  25.00ms
+  fanout_z       n=2000  p50=  22.00ms  p90=  27.00ms  p99=  31.00ms
+  merge          n=2000  p50=   6.00ms  p90=   7.00ms  p99=   8.00ms
+  transform_a    n=2000  p50=  12.00ms  p90=  14.00ms  p99=  17.00ms
+  transform_b    n=2000  p50=  10.00ms  p90=  12.00ms  p99=  14.00ms
+
+-- Fusion plan --
+  baseline units (1 per task): 240
+  fused units: 121
+  linear-chain groups fused: 30
+  sibling-branch groups fused: 0
+
+-- Replayed makespan, simulated 16-worker pool --
+  baseline makespan: 2400.00 ms
+  fused makespan:    2162.00 ms
+  makespan cut:      9.92%
+  task output order unchanged (fused schedule is a valid topological order of the original 240-node DAG): true

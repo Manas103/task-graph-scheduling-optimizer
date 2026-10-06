@@ -1,0 +1,25 @@
+Live demonstration against the real Spring Boot app (java -jar target/task-graph-scheduling-optimizer.jar),
+started and stopped by this measurement, not a mocked MockMvc call.
+
+$ curl -s http://localhost:18080/api/graphs/benchmark/plan
+{
+  "graphId": "benchmark",
+  "nodeCount": 240,
+  "baselineUnitCount": 240,
+  "fusedUnitCount": 121,
+  "baselineMakespanMs": 2400.0,
+  "fusedMakespanMs": 2162.0,
+  "savingsPercent": 9.916666666666666,
+  "outputOrderUnchanged": true,
+  "fusedGroups": "[30 LINEAR_CHAIN groups, full list in the JSON this command actually returned; truncated here for
+                   readability -- each block's merge fuses with the next block's entry/chainA/chainB/chainC,
+                   which is correct: a merge with exactly one child and that child's only dependency being the
+                   merge is the same linear-chain shape the rule is defined on, it just happens to cross a
+                   block boundary]"
+}
+
+$ curl -s -X POST http://localhost:18080/api/graphs -H "Content-Type: application/json" \
+    -d '{"nodes":[{"id":"n1","taskType":"entry","dependsOn":[]},
+               {"id":"n2","taskType":"transform_a","dependsOn":["n1"]},
+               {"id":"n3","taskType":"transform_a","dependsOn":["n2"]}]}'
+{"graphId":"g7318f96e4c1cffe2d9"}

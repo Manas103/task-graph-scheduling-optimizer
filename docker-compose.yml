@@ -1,0 +1,25 @@
+# Production-shaped local infrastructure for this service: PostgreSQL.
+#
+# On the machine this project was built on, a real PostgreSQL 14 cluster was
+# already installed and running as a native service (not Docker), on the
+# default port, so that is what every measured number in this repository
+# actually came from: a real `percentile_cont` query against a real table.
+# This file documents the equivalent Docker standup for anyone without a
+# native install. Either way, the schema is created by Hibernate
+# (`ddl-auto: update`) on first run; see README.md "Building and running".
+version: "3.8"
+services:
+  postgres:
+    image: postgres:16
+    container_name: task-graph-optimizer-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: task_graph_optimizer
+      POSTGRES_USER: taskgraph_app
+      POSTGRES_PASSWORD: taskgraph_app_local_only
+    volumes:
+      - task_graph_optimizer_pgdata:/var/lib/postgresql/data
+
+volumes:
+  task_graph_optimizer_pgdata:
